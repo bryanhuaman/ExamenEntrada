@@ -20,13 +20,30 @@ public class Desarrollador extends Empleado{
     }
 
     @Override
-    public void calcularBono() {
+    public String calcularBono(String desempeno) {
+        double bono = 0.0;
+
+        if(desempeno.equalsIgnoreCase("bueno")){
+            bono = super.salario * listaLenguajes.size();
+        }else if(desempeno.equalsIgnoreCase("regular")){
+            bono = (super.salario * listaLenguajes.size()) * 0.5;
+        }else{
+            bono = 0.0;
+        }
+
+        return this.nombre + " tu bono de fin de año es: S/." + bono;
 
     }
 
 
     @Override
-    public String evaluarDesempeno(String desempeno) {
-        return desempeno;
+    public String evaluarDesempeno() {
+        if(listaLenguajes.size() >=4){
+            return "bueno";
+        }else if(listaLenguajes.size() >=2 && listaLenguajes.size() <=3){
+            return "regular";
+        }else{
+            return "malo";
+        }
     }
 }

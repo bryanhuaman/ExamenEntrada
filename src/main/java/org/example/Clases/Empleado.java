@@ -17,6 +17,8 @@ public abstract class Empleado implements EvaluacionDesempeno {
     }
 
     public void mostrarDetalles(){
+        System.out.println("Datos empleado");
+        System.out.println("==============");
         System.out.println("Id: " + id);
         System.out.println("Nombre: " + nombre);
         System.out.println("Departamento: " + departamento);
@@ -24,5 +26,5 @@ public abstract class Empleado implements EvaluacionDesempeno {
 
     }
 
-    public abstract void calcularBono();
+    public abstract String calcularBono(String desempeno);
 }
